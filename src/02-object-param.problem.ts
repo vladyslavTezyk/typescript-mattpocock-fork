@@ -1,6 +1,19 @@
 import { expect, it } from "vitest";
 
-export const addTwoNumbers = (params) => {
+/* No matter whether using type or interface. The most important is to stay consistent over the project. 
+For me it's better to use type annotation as I can type everything I want with it. 
+*/
+type SumOfTwoArgs = {
+  first: number,
+  second: number
+}
+
+// interface SumOfTwoArgs {
+//   first: number, 
+//   second: number
+// }
+
+export const addTwoNumbers = (params: SumOfTwoArgs) => {
   return params.first + params.second;
 };
 
