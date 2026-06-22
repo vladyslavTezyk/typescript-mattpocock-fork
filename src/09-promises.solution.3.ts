@@ -1,3 +1,5 @@
+import { expectTypeOf, it } from "vitest";
+
 interface LukeSkywalker {
   name: string;
   height: string;
@@ -10,7 +12,7 @@ interface LukeSkywalker {
 }
 
 export const fetchLukeSkywalker = async () => {
-  const data: LukeSkywalker = await fetch(
+  const data = await fetch(
     "https://swapi.py4e.com/api/people/1"
   ).then((res) => {
     return res.json();

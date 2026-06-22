@@ -7,5 +7,5 @@ export default defineConfig({
     passWithNoTests: true,
     environment: "jsdom",
   },
-  plugins: [tsconfigPaths()],
+  plugins: [tsconfigPaths()]
 });

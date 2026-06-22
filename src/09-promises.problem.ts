@@ -1,3 +1,5 @@
+import { expectTypeOf, it } from "vitest";
+
 interface LukeSkywalker {
   name: string;
   height: string;
@@ -9,12 +11,17 @@ interface LukeSkywalker {
   gender: string;
 }
 
-export const fetchLukeSkywalker = async (): LukeSkywalker => {
+export const fetchLukeSkywalker = async ()=> {
   const data = await fetch("https://swapi.py4e.com/api/people/1").then(
     (res) => {
       return res.json();
     }
   );
 
-  return data;
+  return data as LukeSkywalker;
 };
+
+
+it("fetchLukeSkywalker should return a data of type LukeSkywalker", () => {
+  expectTypeOf(fetchLukeSkywalker()).toEqualTypeOf<Promise<LukeSkywalker>>()
+})
