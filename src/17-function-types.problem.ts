@@ -1,9 +1,13 @@
+import { boolean } from "zod";
 import { Equal, Expect } from "./helpers/type-utils";
 
 /**
- * How do we type onFocusChange?
+ * How do we type onFocusChange? => inline or in block by defining the type of arguments and function return type. 
+ The syntax is function name: (arg: type) => return type 
  */
-const addListener = (onFocusChange: unknown) => {
+type FocusListener = (isFocused: boolean) => void
+
+const addListener = (onFocusChange: (isFocused: boolean) => void) => {
   window.addEventListener("focus", () => {
     onFocusChange(true);
   });
